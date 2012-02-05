@@ -1,0 +1,19 @@
+.createIssueNav {
+}
+
+.createIssueContent {
+  font-face: sans;
+}
+
+.createIssueContent .txtboxwrapper {
+  
+}
+
+.createIssueContent label {
+	width: 12em;
+	float: left;
+	text-align: left;
+	margin-right: 0.5em;
+	display: block;
+	font-weight: bold;
+}
