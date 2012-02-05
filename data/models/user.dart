@@ -12,12 +12,15 @@ class User {
   static DataList _dataList;
 
   static DataList getStore() {
+    print("in getstore");
   	if (_dataList == null) {
   		_dataList = new DataList();
   	}
 
+  	print("adding to map");
   	_dataList.itemFunctions["text"] = _getText;
   	_dataList.itemFunctions["value"] =_getValue;
+  	print("adding to map - done");
 
   	return _dataList;
   	

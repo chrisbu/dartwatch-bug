@@ -82,17 +82,21 @@ class ConfigurationView extends TwoPaneView {
   
   _onApply(event) {
     if (_formMode == FORM_ADD) {
+      print("add");
       User user = new User();
+      print("email: ${email==null}");
       user.email = email.value;
       user.fullName = fullname.value;
       user.nick = nickname.value;  
-      User.getStore().add(user);
+      DataList datastore = User.getStore();
+      datastore.addItem(user);
     }
     else if (_formMode == FORM_EDIT) {
       _selectedUser.email = email.value;
       _selectedUser.fullName = fullname.value;
       _selectedUser.nick = nickname.value;
-      User.getStore().update(_selectedUser);
+      DataList datastore = User.getStore();
+      datastore.updateItem(_selectedUser);
      
     }
     

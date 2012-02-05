@@ -49,19 +49,24 @@ class ListBox {
 
   bind(DataList items) {
     items.onChange.add(() {
+      print("listbox.items.onChange handler");
       //anonymous method that will be called when the list changes
       //quick and dirty - just clear the existing list of items, and re-add them all.
       //todo: a better implementation that would react to adding and removing items
       //rather than just changing
-        _listbox.options.clear();
+      print("clearing listbox of existing items");
+      //_listbox.options.clear();
+      
 
-        for (var item in items.items) {
-            OptionElement option = new Element.tag("option");
-            var getItemTitleFunction = items.itemFunctions["title"];
-            option.text = getItemTitleFunction(item);
-            option.value = items.itemFunctions["value"](item); //same as the previous but without the temp var.
-            _listbox.add(option, null);
-        }
+        
+      for (var item in items.items) {
+        print("adding item");
+        OptionElement option = new Element.tag("option");
+        var getItemTitleFunction = items.itemFunctions["title"];
+        option.text = getItemTitleFunction(item);
+        option.value = items.itemFunctions["value"](item); //same as the previous but without the temp var.
+        _listbox.add(option, null);
+      }
       
     });
 
